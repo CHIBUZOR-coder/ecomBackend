@@ -23,15 +23,15 @@ const cartRouter = express.Router()
  *             type: object
  *             properties:
  *                userid:
- *                 type: string
+ *                 type: number
  *                productid:
- *                  type: string
+ *                  type: number
  *                color:
  *                  type: string
  *                size:
  *                  type: string
  *                quantity:
- *                  type: string
+ *                  type: number
  *     responses:
  *       200:
  *         description:
