@@ -180,7 +180,7 @@ exports.loginUser = async (req, res) => {
         expiresIn: '15m'
       })
 
-      const verificationLink = `http://localhost:5000/verifyemail/${token}`
+      const verificationLink = `http://localhost:5173/verifyemail/${token}`
 
       await sendVerification(user.email, verificationLink)
 
@@ -215,6 +215,8 @@ exports.loginUser = async (req, res) => {
 
 exports.verifyEmail = async (req, res) => {
   const { token } = req.body
+  console.log("ver:", token);
+  
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET)
     if (!decoded) {
