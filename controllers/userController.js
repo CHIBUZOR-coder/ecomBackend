@@ -181,6 +181,13 @@ exports.loginUser = async (req, res) => {
       const verificationLink = `https://stream-ashy-theta.vercel.app/verifyemail/${token}`
 
       await sendVerification(user.email, verificationLink)
+
+      return res
+        .status(400)
+        .json({
+          success: false,
+          message: `Your email is not verified. A verification link has been sent to you at ${email} `
+        })
     }
     const token = generateToken(user)
     if (!token) {
