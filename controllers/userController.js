@@ -174,11 +174,13 @@ exports.loginUser = async (req, res) => {
     }
 
     if (!user.isVerified) {
+      console.log("isnot verified");
+      
       const token = jwt.sign({ email }, process.env.JWT_SECRET, {
         expiresIn: '15m'
       })
 
-      const verificationLink = `https://stream-ashy-theta.vercel.app/verifyemail/${token}`
+      const verificationLink = `http://localhost:5000/verifyemail/${token}`
 
       await sendVerification(user.email, verificationLink)
 
