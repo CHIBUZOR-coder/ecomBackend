@@ -27,6 +27,15 @@ const userRouter = express.Router()
  */
 userRouter.post('/loginUser', loginUser)
 
+
+
+
+
+
+
 userRouter.post('/registerUser', uploads.single('image'), registerUser)
+
+
+
 
 module.exports = userRouter
